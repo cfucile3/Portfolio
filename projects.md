@@ -1,3 +1,10 @@
+---
+layout: page
+title: Projects
+---
+
+
+
 # Individual Projects
 
 ### High School Science Fair – Micro‑Hydroelectric Turbine
@@ -13,10 +20,12 @@
 - How to troubleshoot when nothing works the first time
 
 #### Research Paper
-<embed src="papers/stockholm_turbine.pdf"
-       width="100%"
-       height="800px"
-       type="application/pdf">
+
+{% raw %}
+<iframe src="/papers/stockholm_turbine.pdf" width="100%" height="800px"></iframe>
+{% endraw %}
+
+
 
 # School Projects
 
@@ -32,6 +41,7 @@ _Methodology_
 * Modeled the restricted 3‑body problem (Earth–Sun) 
 
 **Key Visuals**
+
 <img src="gifs/l2_motion.gif" width="600">
 
 **Code Snippet**
@@ -90,6 +100,7 @@ _Methodology_
 * Generated ground track plots
 
 **Key Visuals**
+
 <img src="images/groundtrack.png" width="600">
 
 **Code Snippet**
@@ -124,6 +135,7 @@ _Methodology_
 * Calculated service ceiling using excess power curves  
 
 **Key Visuals**
+
 <img src="images/drag_polar.png" width="600">
 
 **Code Snippet**
