@@ -1,15 +1,15 @@
-title: "Your Name"
+title: "Charles Fucile"
 description: "Aerospace Engineering Student @ Georgia Tech"
-url: "https://yourusername.github.io"
+url: "https://cfucile3.github.io"
 baseurl: ""
 
 # Author info
 author:
-  name: "Your Name"
+  name: "Charles Fucile"
   bio: "Aerospace Engineering @ Georgia Tech · CFD · Orbital Mechanics · Controls"
-  email: "your.email@gatech.edu"
-  linkedin: "https://linkedin.com/in/yourprofile"
-  github: "https://github.com/yourusername"
+  email: "cfucile3@gatech.edu"
+  linkedin: "https://linkedin.com/in/charles-fucile"
+  github: "https://github.com/cfucile3"
 
 # Build settings
 markdown: kramdown
