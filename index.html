@@ -426,11 +426,11 @@ title: Home
 
   let W, H, raf;
 
-  const chars = ['.', ':', '*', '+', '•', '·'];
+  const chars = ['.', ':', '*', '+', '•', '·', '░'];
 
-  const orbs = [];
+  let points = [];
 
-  const PADDING = 40; // 🔥 key fix: prevents “edge clipping” feeling
+  const DENSITY = 0.0018; // controls how full the background feels
 
   function resize() {
     W = canvas.width  = canvas.offsetWidth;
@@ -438,60 +438,49 @@ title: Home
   }
 
   function init() {
-    orbs.length = 0;
+    points = [];
 
-    const cx = W / 2;
-    const cy = H / 2;
+    const count = Math.floor(W * H * DENSITY);
 
-    const maxRadius = Math.min(W, H) / 2 - PADDING;
-
-    const layers = 7;
-
-    for (let i = 0; i < layers; i++) {
-      const t = i / layers;
-
-      const count = 12 + i * 5;
-      const radius = maxRadius * t;
-      const speed = (0.004 + t * 0.006) * (i % 2 ? -1 : 1);
-
-      for (let j = 0; j < count; j++) {
-        orbs.push({
-          cx,
-          cy,
-          r: radius + Math.random() * 6,
-          a: Math.random() * Math.PI * 2,
-          s: speed * (0.6 + Math.random() * 0.8),
-          ch: chars[Math.floor(Math.random() * chars.length)]
-        });
-      }
+    for (let i = 0; i < count; i++) {
+      points.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.15,
+        vy: (Math.random() - 0.5) * 0.15,
+        ch: chars[Math.floor(Math.random() * chars.length)],
+        drift: Math.random() * 0.6 + 0.2
+      });
     }
   }
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
 
-    // subtle persistence (feels more “ASCII field” than hard redraw)
-    ctx.fillStyle = 'rgba(11, 22, 40, 0.12)';
+    // subtle fade = trails, but VERY light so it feels like atmosphere
+    ctx.fillStyle = 'rgba(11, 22, 40, 0.10)';
     ctx.fillRect(0, 0, W, H);
 
     ctx.font = '12px monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
 
-    const cx = W / 2;
-    const cy = H / 2;
+    for (const p of points) {
+      // gentle drifting motion (not orbit, not bouncing)
+      p.x += p.vx * p.drift;
+      p.y += p.vy * p.drift;
 
-    for (const o of orbs) {
-      o.a += o.s;
+      // wrap edges (infinite field feel)
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
 
-      const x = cx + Math.cos(o.a) * o.r;
-      const y = cy + Math.sin(o.a) * o.r;
+      // subtle shimmer
+      const alpha = 0.15 + Math.random() * 0.35;
 
-      // extra safety padding so glyphs never feel clipped
-      if (x < 2 || x > W - 2 || y < 2 || y > H - 2) continue;
-
-      const flicker = 0.5 + Math.random() * 0.5;
-
-      ctx.fillStyle = `rgba(0,200,255,${flicker})`;
-      ctx.fillText(o.ch, x, y);
+      ctx.fillStyle = `rgba(0,200,255,${alpha})`;
+      ctx.fillText(p.ch, p.x, p.y);
     }
 
     raf = requestAnimationFrame(draw);
