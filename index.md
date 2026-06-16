@@ -1,5 +1,3 @@
-# Charles Fucile – Aerospace Engineering Portfolio
-
 Welcome to my aerospace engineering portfolio.
 
 - Research paper on Micro-hydroelectric turbines
