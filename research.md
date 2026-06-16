@@ -1,3 +1,9 @@
+---
+layout: single
+title: Projects
+permalink: /projects/
+---
+
 # Computational Fluid Dynamics Research @ Georgia Tech
 
 Highlights:
