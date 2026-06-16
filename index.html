@@ -85,25 +85,15 @@ title: Home
     display: inline-block;
   }
 
-  .btn-primary {
-    background: #E0E1DD;
-    color: #0B1628;
-    font-weight: 700;
-  }
-  .btn-primary:hover {
-    background: #33D4FF;
-    text-decoration: none;
-    transform: translateY(-1px);
-  }
-
   .btn-outline {
     border: 1px solid rgba(139,163,192,0.35);
     color: #8BA3C0;
   }
-  .btn-outline:hover {
-    border-color: #E0E1DD;
-    color: #E0E1DD;
+  
+  .btn-primary:hover {
+    background: #E0E1DD;
     text-decoration: none;
+    transform: translateY(-1px);
   }
 
   /* ─── QUICK STATS ────────────────────────────────────────── */
@@ -288,7 +278,7 @@ title: Home
       Charles<br>Fucile</em>
     </h1>
     <div class="hero-cta">
-      <a href="{{ '/research/' | relative_url }}" class="btn btn-primary">Research</a>
+      <a href="{{ '/research/' | relative_url }}" class="btn btn-outline">Research</a>
       <a href="{{ '/projects/' | relative_url }}" class="btn btn-outline">Projects</a>
       <a href="mailto:{{ site.author.email }}" class="btn btn-outline">Contact</a>
     </div>
