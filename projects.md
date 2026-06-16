@@ -1,3 +1,9 @@
+---
+layout: page
+title: Projects
+---
+
+
 # Individual Projects
 
 ### High School Science Fair – Micro‑Hydroelectric Turbine
