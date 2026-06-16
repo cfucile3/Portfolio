@@ -1,11 +1,11 @@
-title: Charles Fucile
+title: Chris Fucile
 description: Aerospace Engineering Portfolio
 
-remote_theme: mmistakes/minimal-mistakes
+url: "https://cfucile3.github.io"
+baseurl: "/Portfolio"
+
+remote_theme: "mmistakes/minimal-mistakes"
 
 plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
-
-url: "https://cfucile3.github.io"
-baseurl: "/Portfolio"
