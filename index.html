@@ -26,6 +26,20 @@ title: Home
     position: relative;
     z-index: 2;
     max-width: 700px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+  }
+
+  .hero-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  
+    border-radius: 50%;
+    border: 2px solid rgba(0,200,255,0.5);
   }
 
   .hero-eyebrow {
@@ -178,7 +192,7 @@ title: Home
   .skill-category .cat-name {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
-    color: #4A6080;
+    color: #778DA9;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
@@ -215,7 +229,7 @@ title: Home
   }
 
   .feat-card {
-    background: #778DA9;
+    background: #3F4F64;
     border: 1px solid rgba(139,163,192,0.12);
     border-radius: 6px;
     padding: 1.75rem;
@@ -273,14 +287,19 @@ title: Home
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
   <div class="hero-inner">
-    <p class="hero-eyebrow">Aerospace Engineering · Georgia Tech</p>
-    <h1 class="hero-name">
-      Charles<br>Fucile</em>
-    </h1>
-    <div class="hero-cta">
-      <a href="{{ '/research/' | relative_url }}" class="btn btn-outline">Research</a>
-      <a href="{{ '/projects/' | relative_url }}" class="btn btn-outline">Projects</a>
-      <a href="mailto:{{ site.author.email }}" class="btn btn-outline">Contact</a>
+    <div class="hero-text">
+      <p class="hero-eyebrow">Aerospace Engineering · Georgia Tech</p>
+      <h1 class="hero-name">
+        Charles<br>Fucile</em>
+      </h1>
+      <div class="hero-cta">
+        <a href="{{ '/research/' | relative_url }}" class="btn btn-outline">Research</a>
+        <a href="{{ '/projects/' | relative_url }}" class="btn btn-outline">Projects</a>
+        <a href="mailto:{{ site.author.email }}" class="btn btn-outline">Contact</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="{{ '/images/profile.jpg' | relative_url }}">
     </div>
   </div>
 
