@@ -23,7 +23,7 @@ _Results_
 The pressure and mach distributions over the airfoil demonstrate the principles of lift as well as the propagation of the boundary layer along the surface. This case study was conducted in order to verify the use of CFD simulations to represent systems, by representing a system which we know the results of for comparison. Additionally, this study was compared to experimental data in order to determine the accuracy of Fluent simulation and was determined to be within an acceptable parameter of experimental data to be considered valid.
 
 ## CFD Analysis of Axisymmetric Nozzle
-Case study of the aerodynamic behavior of an axisymmetric nozzle. 
+Case study of the aerodynamic behavior of an axisymmetric nozzle. Then, validating the use of CFD modeling through comparison of analytical and simulated values for the behavior of the nozzle.
 
 _Methodology_
 * Geometry: Axisymmetric nozzle (A=x^2+0.1; -0.5<x<0.5)
