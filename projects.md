@@ -21,13 +21,10 @@ Pursued a micro-hydroelectric turbine which would be installed in household pipe
 
 #### Research Paper
 
-{% raw %}
 <embed src="/papers/stockholm_turbine.pdf"
        width="100%"
        height="800px"
        type="application/pdf">
-{% endraw %}
-
 
 
 
