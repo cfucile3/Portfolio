@@ -2,8 +2,6 @@
 
 Welcome to my aerospace engineering portfolio.
 
-- Research paper on [topic coming soon]
-- Code projects in flight dynamics and simulation
-- CFD and FEM simulation results with plots and visuals
-
-More content will be added soon.
+- Research paper on Micro-hydroelectric turbines
+- Software projects in orbital mechanics, aircraft analysis, and robotic simulation
+- CFD simulation results with plots and visuals
