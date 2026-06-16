@@ -204,8 +204,6 @@ title: Home
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.68rem;
     padding: 0.2rem 0.55rem;
-    color: #8BA3C0;
-    border: 1px solid rgba(139,163,192,0.15);
   }
 
   /* ─── FEATURED SECTIONS ──────────────────────────────────── */
@@ -229,7 +227,6 @@ title: Home
   .feat-card {
     background: #172847;
     border: 1px solid rgba(139,163,192,0.12);
-    border-top: 2px solid var(--accent, #00C8FF);
     border-radius: 6px;
     padding: 1.75rem;
     transition: transform 0.2s, border-color 0.2s;
@@ -288,51 +285,31 @@ title: Home
   <div class="hero-inner">
     <p class="hero-eyebrow">Aerospace Engineering · Georgia Tech</p>
     <h1 class="hero-name">
-      Charles<br>Fucile<em>.</em>
+      Charles<br>Fucile<em>
     </h1>
-    <p class="hero-bio">
-      I build simulations, models, and analyses at the intersection of fluid dynamics,
-      orbital mechanics, and spacecraft systems. Comfortable in ANSYS, MATLAB, and
-      the gap between theory and hardware.
-    </p>
     <div class="hero-cta">
-      <a href="{{ '/research/' | relative_url }}" class="btn btn-primary">View Research</a>
+      <a href="{{ '/research/' | relative_url }}" class="btn btn-primary">Research</a>
       <a href="{{ '/projects/' | relative_url }}" class="btn btn-outline">Projects</a>
       <a href="mailto:{{ site.author.email }}" class="btn btn-outline">Contact</a>
     </div>
   </div>
-
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="num">7</div>
-      <div class="lbl">CFD Geometries</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">10+</div>
-      <div class="lbl">Prototypes Built</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">4</div>
-      <div class="lbl">Sim Domains</div>
-    </div>
-  </div>
-</section>
-
 <!-- ABOUT STRIP -->
 <section>
   <div class="about-strip">
     <div class="about-text">
-      <h2>Engineering with depth.</h2>
+      <h2>About Me</h2>
       <p>
         Studying Aerospace Engineering at Georgia Tech with a focus on computational
         methods and vehicle performance. My work spans CFD analysis of airfoils and
         turbines, orbital mechanics simulation, and physical prototyping — I care about
-        understanding the physics, not just running the software.
+        understanding the physics, not just running the software. I build simulations, models, and analyses at the intersection of fluid dynamics,
+        orbital mechanics, and spacecraft systems. Comfortable in ANSYS, MATLAB, and
+        the gap between theory and hardware.
       </p>
       <br>
       <p>
         Looking for internship and co-op roles where I can contribute to real
-        aerospace, defense, or energy systems.
+        aerospace, research, or energy systems.
       </p>
     </div>
 
@@ -340,42 +317,40 @@ title: Home
       <h3>Technical Skills</h3>
 
       <div class="skill-category">
-        <div class="cat-name">Simulation &amp; CFD</div>
+        <div class="cat-name">Engineering</div>
         <div class="skill-tags">
-          <span class="skill-tag">ANSYS Fluent</span>
-          <span class="skill-tag">k-ω SST</span>
-          <span class="skill-tag">k-ε Realizable</span>
-          <span class="skill-tag">Mesh Generation</span>
+          <span class="skill-tag">Aerodynamics</span>
+          <span class="skill-tag">CFD Analysis</span>
+          <span class="skill-tag">Systems Integration</span>
+          <span class="skill-tag">Test Operations</span>
+          <span class="skill-tag">Mechanical Assembly</span>
+          <span class="skill-tag">Prototyping</span>
+          <span class="skill-tag">Structural Analysis</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <div class="cat-name">Computation</div>
+        <div class="cat-name">Software</div>
         <div class="skill-tags">
+          <span class="skill-tag">Ansys Fluent</span>
           <span class="skill-tag">MATLAB</span>
-          <span class="skill-tag">Numerical Integration</span>
-          <span class="skill-tag">Python</span>
-        </div>
-      </div>
-
-      <div class="skill-category">
-        <div class="cat-name">Domains</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Orbital Mechanics</span>
-          <span class="skill-tag">Fluid Dynamics</span>
-          <span class="skill-tag">Vehicle Performance</span>
-          <span class="skill-tag">Dynamics &amp; Controls</span>
-        </div>
-      </div>
-
-      <div class="skill-category">
-        <div class="cat-name">Tools</div>
-        <div class="skill-tags">
           <span class="skill-tag">SolidWorks</span>
-          <span class="skill-tag">LaTeX</span>
-          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Fusion 360</span>
+          <span class="skill-tag">Onshape</span>
         </div>
       </div>
+
+      <div class="skill-category">
+        <div class="cat-name">Manufacturing</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Additive Manufacturing (FDM, SLA, SLS)</span>
+          <span class="skill-tag">Laser Cutting</span>
+          <span class="skill-tag">Equipment Maintenance & Repair</span>
+          <span class="skill-tag">Wood Tools</span>
+          <span class="skill-tag">Hand Tools</span>
+        </div>
+      </div>
+      
     </div>
   </div>
 </section>
