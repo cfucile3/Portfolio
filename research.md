@@ -1,4 +1,4 @@
-#Computational Fluid Dynamics Research @ Georgia Tech
+# Computational Fluid Dynamics Research @ Georgia Tech
 
 Highlights:
 - 7 geometries modeled and analyzed on ANSYS Fluent
