@@ -14,18 +14,20 @@
   <style>
     /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
-      --space-indigo:      #202D46;
-      --navy:  #172847;
+      --space-indigo:  #202D46; 
       --prussian-blue: #1B263B;
+      --navy:  #172847;
+      --ink-black: #1B263B;
       --slate:     #4A6080;
       --slate-lt:  #8BA3C0;
       --off-white: #E8EDF5;
       --white:     #F4F7FC;
-      --cyan:      #00C8FF;
+      --dusk-blue:      #415A77;
       --cyan-dim:  rgba(0,200,255,0.15);
       --mono:      'JetBrains Mono', monospace;
       --display:   'Space Grotesk', sans-serif;
       --body:      'Inter', sans-serif;
+      
     }
 
     /* ─── RESET ──────────────────────────────────────────────── */
@@ -41,7 +43,7 @@
       min-height: 100vh;
     }
 
-    a { color: var(--cyan); text-decoration: none; }
+    a { color: var(--dusk-blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
     img { max-width: 100%; height: auto; display: block; border-radius: 4px; }
 
@@ -50,7 +52,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(11,22,40,0.92);
+      background: var(--prussian-blue);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(139,163,192,0.15);
       padding: 0 clamp(1.5rem, 5vw, 4rem);
@@ -67,7 +69,7 @@
       color: var(--white);
       letter-spacing: 0.02em;
     }
-    .nav-logo span { color: var(--cyan); }
+    .nav-logo span { color: var(--dusk-blue); }
 
     .nav-links {
       display: flex;
@@ -84,7 +86,7 @@
       transition: color 0.2s;
     }
     .nav-links a:hover,
-    .nav-links a.active { color: var(--cyan); text-decoration: none; }
+    .nav-links a.active { color: var(--dusk-blue); text-decoration: none; }
 
     /* ─── MAIN CONTENT WRAPPER ───────────────────────────────── */
     .page-content {
@@ -99,7 +101,7 @@
       font-size: 0.68rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--cyan);
+      color: var(--dusk-blue);
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
@@ -131,7 +133,7 @@
 
     /* ─── CARDS ──────────────────────────────────────────────── */
     .card {
-      background: var(--prussian-blue);
+      background: var(--ink-black);
       border: 1px solid rgba(139,163,192,0.12);
       border-radius: 6px;
       padding: 2rem 2.25rem;
@@ -207,7 +209,7 @@
       line-height: 1.6;
     }
 
-    code { color: var(--cyan); background: rgba(0,200,255,0.08); padding: 0.1em 0.35em; border-radius: 3px; }
+    code { color: var(--dusk-blue); background: rgba(0,200,255,0.08); padding: 0.1em 0.35em; border-radius: 3px; }
     pre code { background: none; padding: 0; color: inherit; }
 
     /* ─── METHODOLOGY LIST ───────────────────────────────────── */
@@ -227,7 +229,7 @@
       content: '→';
       position: absolute;
       left: 0;
-      color: var(--cyan);
+      color: var(--dusk-blue);
       font-family: var(--mono);
     }
 
@@ -243,7 +245,7 @@
     }
 
     .results-block strong {
-      color: var(--cyan);
+      color: var(--dusk-blue);
       font-family: var(--mono);
       font-size: 0.7rem;
       letter-spacing: 0.1em;
@@ -315,7 +317,7 @@
       color: var(--slate);
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--cyan); text-decoration: none; }
+    .footer-links a:hover { color: var(--dusk-blue); text-decoration: none; }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 600px) {
