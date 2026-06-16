@@ -1,0 +1,486 @@
+---
+layout: default
+title: Home
+---
+
+<style>
+  /* ─── HERO ───────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    overflow: hidden;
+  }
+
+  /* Mesh / constellation canvas */
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #00C8FF;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fade-up 0.7s ease 0.1s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 700;
+    color: #F4F7FC;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fade-up 0.7s ease 0.25s forwards;
+  }
+
+  .hero-name em {
+    font-style: normal;
+    color: #00C8FF;
+  }
+
+  .hero-bio {
+    font-size: 1.1rem;
+    color: #8BA3C0;
+    max-width: 540px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fade-up 0.7s ease 0.4s forwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fade-up 0.7s ease 0.55s forwards;
+  }
+
+  .btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.75rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: #00C8FF;
+    color: #0B1628;
+    font-weight: 700;
+  }
+  .btn-primary:hover {
+    background: #33D4FF;
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    border: 1px solid rgba(139,163,192,0.35);
+    color: #8BA3C0;
+  }
+  .btn-outline:hover {
+    border-color: #00C8FF;
+    color: #00C8FF;
+    text-decoration: none;
+  }
+
+  /* ─── QUICK STATS ────────────────────────────────────────── */
+  .hero-stats {
+    position: absolute;
+    bottom: 3rem;
+    right: clamp(1.5rem, 5vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 2;
+    opacity: 0;
+    animation: fade-in 0.8s ease 0.8s forwards;
+  }
+
+  .hero-stat {
+    text-align: right;
+  }
+
+  .hero-stat .num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #F4F7FC;
+    line-height: 1;
+  }
+
+  .hero-stat .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #4A6080;
+  }
+
+  /* ─── ABOUT STRIP ────────────────────────────────────────── */
+  .about-strip {
+    background: #132040;
+    border-top: 1px solid rgba(139,163,192,0.1);
+    border-bottom: 1px solid rgba(139,163,192,0.1);
+    padding: 4rem clamp(1.5rem, 5vw, 4rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 680px) {
+    .about-strip { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-stats { position: static; flex-direction: row; flex-wrap: wrap; margin-top: 2.5rem; }
+    .hero-stat { text-align: left; }
+  }
+
+  .about-text h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #F4F7FC;
+    margin-bottom: 1rem;
+  }
+
+  .about-text p {
+    color: #8BA3C0;
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .skills-grid h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #00C8FF;
+    margin-bottom: 1.25rem;
+  }
+
+  .skill-category {
+    margin-bottom: 1.25rem;
+  }
+
+  .skill-category .cat-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: #4A6080;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .skill-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 3px;
+    background: rgba(0,200,255,0.08);
+    color: #8BA3C0;
+    border: 1px solid rgba(139,163,192,0.15);
+  }
+
+  /* ─── FEATURED SECTIONS ──────────────────────────────────── */
+  .featured {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 620px) {
+    .featured-grid { grid-template-columns: 1fr; }
+  }
+
+  .feat-card {
+    background: #172847;
+    border: 1px solid rgba(139,163,192,0.12);
+    border-top: 2px solid var(--accent, #00C8FF);
+    border-radius: 6px;
+    padding: 1.75rem;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .feat-card:hover { transform: translateY(-3px); border-top-color: #33D4FF; }
+
+  .feat-card .fc-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #00C8FF;
+    margin-bottom: 0.75rem;
+  }
+
+  .feat-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #F4F7FC;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .feat-card p {
+    font-size: 0.85rem;
+    color: #8BA3C0;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .feat-card a.card-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #00C8FF;
+  }
+
+  /* ─── KEYFRAMES ──────────────────────────────────────────── */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Aerospace Engineering · Georgia Tech</p>
+    <h1 class="hero-name">
+      Your<br>Name<em>.</em>
+    </h1>
+    <p class="hero-bio">
+      I build simulations, models, and analyses at the intersection of fluid dynamics,
+      orbital mechanics, and spacecraft systems. Comfortable in ANSYS, MATLAB, and
+      the gap between theory and hardware.
+    </p>
+    <div class="hero-cta">
+      <a href="{{ '/research/' | relative_url }}" class="btn btn-primary">View Research</a>
+      <a href="{{ '/projects/' | relative_url }}" class="btn btn-outline">Projects</a>
+      <a href="mailto:{{ site.author.email }}" class="btn btn-outline">Contact</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">7</div>
+      <div class="lbl">CFD Geometries</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">10+</div>
+      <div class="lbl">Prototypes Built</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">4</div>
+      <div class="lbl">Sim Domains</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<section>
+  <div class="about-strip">
+    <div class="about-text">
+      <h2>Engineering with depth.</h2>
+      <p>
+        Studying Aerospace Engineering at Georgia Tech with a focus on computational
+        methods and vehicle performance. My work spans CFD analysis of airfoils and
+        turbines, orbital mechanics simulation, and physical prototyping — I care about
+        understanding the physics, not just running the software.
+      </p>
+      <br>
+      <p>
+        Looking for internship and co-op roles where I can contribute to real
+        aerospace, defense, or energy systems.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      <h3>Technical Skills</h3>
+
+      <div class="skill-category">
+        <div class="cat-name">Simulation &amp; CFD</div>
+        <div class="skill-tags">
+          <span class="skill-tag">ANSYS Fluent</span>
+          <span class="skill-tag">k-ω SST</span>
+          <span class="skill-tag">k-ε Realizable</span>
+          <span class="skill-tag">Mesh Generation</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="cat-name">Computation</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">Numerical Integration</span>
+          <span class="skill-tag">Python</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="cat-name">Domains</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Orbital Mechanics</span>
+          <span class="skill-tag">Fluid Dynamics</span>
+          <span class="skill-tag">Vehicle Performance</span>
+          <span class="skill-tag">Dynamics &amp; Controls</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="cat-name">Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">SolidWorks</span>
+          <span class="skill-tag">LaTeX</span>
+          <span class="skill-tag">Git</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED WORK -->
+<section class="featured">
+  <p class="section-label">Featured Work</p>
+
+  <div class="featured-grid">
+    <div class="feat-card">
+      <div class="fc-label">Research</div>
+      <h3>CFD Analysis @ Georgia Tech</h3>
+      <p>7 geometries across airfoils, nozzles, and turbines — modeled, meshed, and validated against experimental data in ANSYS Fluent.</p>
+      <a href="{{ '/research/' | relative_url }}" class="card-link">View Research →</a>
+    </div>
+
+    <div class="feat-card">
+      <div class="fc-label">Project</div>
+      <h3>Micro-Hydroelectric Turbine</h3>
+      <p>10+ physical prototypes. Fluid mechanics modelling. Presented at international science fair. Built the whole thing from scratch.</p>
+      <a href="{{ '/projects/' | relative_url }}" class="card-link">View Projects →</a>
+    </div>
+
+    <div class="feat-card">
+      <div class="fc-label">Simulation</div>
+      <h3>Orbital Mechanics — L2 Point</h3>
+      <p>Estimated the Sun–Earth L2 Lagrange point and simulated satellite trajectories around it using numerical integration in MATLAB.</p>
+      <a href="{{ '/projects/' | relative_url }}#l2" class="card-link">View Project →</a>
+    </div>
+
+    <div class="feat-card">
+      <div class="fc-label">Dynamics</div>
+      <h3>Microgravity Robot Simulation</h3>
+      <p>Designed thruster geometry and simulated an AstroBee-inspired cubic robot navigating around obstacles in a microgravity environment.</p>
+      <a href="{{ '/projects/' | relative_url }}#robot" class="card-link">View Project →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MESH ANIMATION -->
+<script>
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes, raf;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function initNodes(n) {
+    return Array.from({ length: n }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    const MAX_DIST = 160;
+
+    nodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+    });
+
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const d  = Math.sqrt(dx*dx + dy*dy);
+        if (d < MAX_DIST) {
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = `rgba(0,200,255,${0.55 * (1 - d / MAX_DIST)})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, 1.8, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,200,255,0.7)';
+      ctx.fill();
+    });
+
+    raf = requestAnimationFrame(draw);
+  }
+
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!mq.matches) {
+    resize();
+    nodes = initNodes(55);
+    draw();
+    window.addEventListener('resize', () => { resize(); nodes = initNodes(55); });
+  }
+})();
+</script>
