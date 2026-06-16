@@ -29,3 +29,12 @@
     display: block;
     margin: 2rem auto;
 }
+
+.page__content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.page__title {
+    margin-bottom: 2rem;
+}
