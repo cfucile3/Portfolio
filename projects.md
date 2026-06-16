@@ -1,14 +1,8 @@
----
-layout: page
-title: Projects
----
-
-
-
 # Individual Projects
 
 ### High School Science Fair – Micro‑Hydroelectric Turbine
-
+_Overview_
+Pursued a micro-hydroelectric turbine which would be installed in household pipes to passively generate electricity through household water use. Developed 10+ prototypes, met with professors and teachers to determine fluid mechanics. Calculated theoretical energy output of the turbine and conducted tests to try and determine real electrical output.
 
 **Key Visuals**  
 
