@@ -1,11 +1,46 @@
-title: Charles Fucile
-description: Aerospace Engineering Portfolio
+title: "Your Name"
+description: "Aerospace Engineering Student @ Georgia Tech"
+url: "https://yourusername.github.io"
+baseurl: ""
 
-url: "https://cfucile3.github.io"
-baseurl: "/Portfolio"
+# Author info
+author:
+  name: "Your Name"
+  bio: "Aerospace Engineering @ Georgia Tech · CFD · Orbital Mechanics · Controls"
+  email: "your.email@gatech.edu"
+  linkedin: "https://linkedin.com/in/yourprofile"
+  github: "https://github.com/yourusername"
 
-remote_theme: "mmistakes/minimal-mistakes"
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
 
+# Plugins
 plugins:
-  - jekyll-remote-theme
-  - jekyll-include-cache
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - README.md
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
