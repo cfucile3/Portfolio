@@ -21,9 +21,11 @@ _Methodology_
 * Boundary Conditions: Inlet Mach - 0.7  Inlet Pressure - 1000 Pa
 * Assumptions: steady, inviscid, and incompressible
 
-<img src="images/para_mach.png" width="600">
+<img src="{{ '/images/para_mach.png' | relative_url }}"
+     alt="Ground track simulation">
 
-<img src="images/para_validation.png" width="600">
+<img src="{{ '/images/para_validation.png' | relative_url }}"
+     alt="Ground track simulation">
 
 _Results_
 The pressure and mach distributions over the airfoil demonstrate the principles of lift as well as the propagation of the boundary layer along the surface. This case study was conducted in order to verify the use of CFD simulations to represent systems, by representing a system which we know the results of for comparison. Additionally, this study was compared to experimental data in order to determine the accuracy of Fluent simulation and was determined to be within an acceptable parameter of experimental data to be considered valid.
@@ -37,9 +39,11 @@ _Methodology_
 * Boundary Conditions: Reservoir Pressure - 101325 Pa  Reservoir Temperature - 300 K
 * Assumptions: unsteady, inviscid, and compressible
 
-<img src="images/nozz_mach.png" width="600">
+<img src="{{ '/images/nozz_mach.png' | relative_url }}"
+     alt="Ground track simulation">
 
-<img src="images/nozz_pressure.png" width="600">
+<img src="{{ '/images/nozz_pressure.png' | relative_url }}"
+     alt="Ground track simulation">
 
 _Results_
 The study conducted for this geometry demonstrated a difference between our simulated and expected results, however this was due to the assumptions of many nozzle calculations to average values across the nozzle's area. Comparing the pressure at different walls of the nozzle we found that the expected pressure was right between these values throughout the nozzle.
@@ -53,9 +57,10 @@ _Methodology_
 * Boundary Conditions: Inlet Velocity - 10 m/s  Inlet Pressure - 40 rpm
 * Assumptions: steady, viscous, no-slip, and incompressible
 
-<img src="images/vert_pressure.png" width="600">
+<img src="{{ '/images/vert_pressure.png' | relative_url }}"
+     alt="Ground track simulation">
 
-<img src="images/vert_kinetic.png" width="600">
-
+<img src="{{ '/images/vert_kinetic.png' | relative_url }}"
+     alt="Ground track simulation">
 _Results_
 The velocity and kinetic energy shown trailing the rotor blades demonstrated the transfer of energy from the flow to the rotor as the simulation occurred. Additionally, the difference between the rotor reactions at different angles clearly demonstrated the orientation of the rotor blades which results in the greatest impact on energy production.
