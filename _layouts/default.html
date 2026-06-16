@@ -133,7 +133,6 @@
     .card {
       background: var(--navy-card);
       border: 1px solid rgba(139,163,192,0.12);
-      border-left: 3px solid var(--cyan);
       border-radius: 6px;
       padding: 2rem 2.25rem;
       margin-bottom: 2rem;
@@ -175,10 +174,6 @@
       font-size: 0.68rem;
       letter-spacing: 0.06em;
       padding: 0.25rem 0.65rem;
-      border-radius: 3px;
-      background: var(--cyan-dim);
-      color: var(--cyan);
-      border: 1px solid rgba(0,200,255,0.25);
     }
 
     /* ─── PROJECT IMAGES ─────────────────────────────────────── */
@@ -342,7 +337,7 @@
   <!-- NAV -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <a class="nav-logo" href="{{ '/' | relative_url }}">
-      {{ site.author.name | split: ' ' | first }}<span>.</span>
+      {{ site.author.name | split: ' ' | first }}</span>
     </a>
     <ul class="nav-links">
       <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Home</a></li>
