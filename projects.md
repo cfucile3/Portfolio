@@ -12,7 +12,8 @@ Pursued a micro-hydroelectric turbine which would be installed in household pipe
 
 **Key Visuals**  
 
-<img src="images/turbine_setup.png" width="600">
+<img src="{{ '/images/turbine_setup.png' | relative_url }}"
+     alt="turbine assembly drawing">
 
 **What I Learned**
 - How to design and test a physical system  
@@ -49,7 +50,8 @@ _Methodology_
 
 **Key Visuals**
 
-<img src="gifs/l2_motion.gif" width="600">
+<img src="{{ '/gifs/l2_motion.gif' | relative_url }}"
+     alt="L2 point orbit simulation">
 
 **Code Snippet**
 ~~~matlab
@@ -77,7 +79,8 @@ _Methodology_
 
 **Key Visuals**
 
-<img src="gifs/robot_motion.gif" width="600">
+<img src="{{ '/gifs/robot_motion.gif' | relative_url }}"
+     alt="Robot motion simulation">
 
 **Code Snippet**
 ~~~matlab
@@ -108,7 +111,8 @@ _Methodology_
 
 **Key Visuals**
 
-<img src="images/groundtrack.png" width="600">
+<img src="{{ '/images/groundtrack.png' | relative_url }}"
+     alt="Ground track simulation">
 
 **Code Snippet**
 ~~~matlab
@@ -143,7 +147,8 @@ _Methodology_
 
 **Key Visuals**
 
-<img src="images/drag_polar.png" width="600">
+<img src="{{ '/images/drag_polar.png' | relative_url }}"
+     alt="Aircraft drag polar">
 
 **Code Snippet**
 ~~~matlab
