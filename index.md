@@ -1,4 +1,4 @@
-# CJ – Aerospace Engineering Portfolio
+# Charles Fucile – Aerospace Engineering Portfolio
 
 Welcome to my aerospace engineering portfolio.
 
