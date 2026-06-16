@@ -1,9 +1,3 @@
----
-layout: page
-title: Projects
----
-
-
 # Individual Projects
 
 ### High School Science Fair – Micro‑Hydroelectric Turbine
@@ -21,10 +15,18 @@ Pursued a micro-hydroelectric turbine which would be installed in household pipe
 
 #### Research Paper
 
-<iframe src="papers/stockholm_turbine.pdf"
-        width="100%"
-        height="800px">
-</iframe>
+<object
+    data="{{ '/papers/stockholm_turbine.pdf' | relative_url }}"
+    type="application/pdf"
+    width="100%"
+    height="800">
+    <p>
+        Your browser cannot display PDFs.
+        <a href="{{ '/papers/stockholm_turbine.pdf' | relative_url }}">
+            Download the PDF
+        </a>.
+    </p>
+</object>
 
 # School Projects
 
