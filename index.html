@@ -190,7 +190,7 @@ title: Home
 
   /* ─── FEATURED SECTIONS ──────────────────────────────────── */
   .featured {
-    max-width: 1080px;
+    max-width: 1260px;
     margin: 0 auto;
     padding: clamp(3.5rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
   }
@@ -219,18 +219,26 @@ title: Home
   @media (max-width: 900px) {
     .featured-grid { grid-template-columns: 1fr; }
   }
-
+  
   .feat-card {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 16px;
     background: #FFFFFF;
     border: 1px solid #DCD6C9;
     border-radius: 10px;
+    padding: 2rem;
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
-  .feat-card .fc-content {
+  .featured {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: clamp(3.5rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .feat-card .hover-mode{
     position: absolute;
     background: #FFFFFF;
     top: 0;
@@ -241,6 +249,11 @@ title: Home
     min-width: 0;
     opacity: 0;
   }
+  
+  .feat-card .fc-content {
+    flex: 1;
+    min-width: 0;
+  }
 
   .feat-card:hover {
     transform: translateY(-2px);
@@ -249,7 +262,7 @@ title: Home
 
   .feat-card:hover .fc-content{
     transform: translateY(-2px);
-    opacity: 0.85;
+    opacity: 1;
   }
 
   .feat-card .fc-label {
@@ -260,6 +273,7 @@ title: Home
     text-transform: uppercase;
     color: #4A6585;
     margin-bottom: 0.9rem;
+    align-items: center;
   }
 
   .feat-card h3 {
@@ -285,7 +299,15 @@ title: Home
     object-fit: cover;
     flex-shrink: 0;
   }
-
+  
+  .feat-card .hover-card-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+  
   .feat-card a.card-link {
     font-family: var(--sans);
     font-size: 0.85rem;
@@ -372,15 +394,20 @@ Want to make it so its an image and then on hover the text comes out. Use simila
 
   <div class="featured-grid">
     <div class="feat-card">
-      <div class="fc-label">Research</div>
-      <div class="fc-content">
-        <h3>CFD analysis at Georgia Tech</h3>
-        <p>Seven geometric case studies across airfoils, nozzles, and turbines — modeled, meshed, and validated against experimental data in ANSYS Fluent.</p>
-        <a href="{{ '/research/' | relative_url }}" class="card-link">View research →</a>
+      <div class="hover-mode">
+        <div class="fc-content">
+          <div class="fc-label">Research</div>
+          <h3>CFD analysis at Georgia Tech</h3>
+          <p>Seven geometric case studies across airfoils, nozzles, and turbines — modeled, meshed, and validated against experimental data in ANSYS Fluent.</p>
+          <a href="{{ '/research/' | relative_url }}" class="card-link">View research →</a>
+        </div>
+        <img class="hover-card-img"
+             src="{{ '/images/vawt_velo.png' | relative_url }}"
+             alt="Contour plot of velocity off of a VAWT" />
       </div>
       <img class="card-img"
-           src="{{ '/images/vawt_velo.png' | relative_url }}"
-           alt="Contour plot of velocity off of a VAWT" />
+             src="{{ '/images/vawt_velo.png' | relative_url }}"
+             alt="Contour plot of velocity off of a VAWT" />
     </div>
 
     <div class="feat-card">
