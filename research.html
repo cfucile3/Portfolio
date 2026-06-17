@@ -5,6 +5,95 @@ permalink: /research/
 description: "CFD research at Georgia Tech — ANSYS Fluent analysis of airfoils, nozzles, and wind turbines."
 ---
 
+<style>
+  .study-summary {
+    font-size: 0.98rem;
+    color: #5B6B7F;
+    margin-bottom: 1.4rem;
+  }
+
+  .quick-facts {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+  }
+
+  .quick-facts li {
+    font-size: 0.92rem;
+    color: #2C3A4D;
+    padding: 0.4rem 0 0.4rem 1.5rem;
+    position: relative;
+    border-bottom: 1px solid #EFEBE3;
+  }
+
+  .quick-facts li:last-child { border-bottom: none; }
+
+  .quick-facts li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #4A6585;
+  }
+
+  .quick-facts li strong {
+    font-weight: 600;
+    color: #2C3A4D;
+  }
+
+  .results-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .results-list li {
+    font-size: 0.92rem;
+    color: #5B6B7F;
+    padding: 0.5rem 0 0.5rem 1.6rem;
+    position: relative;
+  }
+
+  .results-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4A6585;
+    font-weight: 600;
+  }
+
+  /* ─── FEATURED CARD ──────────────────────────────────────── */
+  .card-featured {
+    border: 2px solid #4A6585;
+    position: relative;
+  }
+
+  .featured-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: #4A6585;
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+  }
+
+  .subsection-heading {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8895A3;
+    margin: 1.5rem 0 0.6rem;
+  }
+</style>
+
 <div class="page-content">
 
   <p class="section-label">Research</p>
@@ -21,110 +110,30 @@ description: "CFD research at Georgia Tech — ANSYS Fluent analysis of airfoils
     <div class="stat-pill"><span>ANSYS</span>Fluent solver</div>
   </div>
 
-  <!-- ─── STUDY 1 ─────────────────────────────────────────── -->
-  <div class="card" id="naca0012">
-    <div class="card-meta">CFD case study 01 · Airfoil aerodynamics</div>
-    <h3>Symmetric airfoil — parametric AoA sweep</h3>
-    <div class="tag-list">
-      <span class="tag">NACA 0012</span>
-      <span class="tag">SST k-ω</span>
-      <span class="tag">Mach 0.7</span>
-      <span class="tag">Parametric sweep</span>
-      <span class="tag">Validation</span>
-    </div>
-
-    <p style="color:#2C3A4D; font-weight:600; font-size:0.9rem; margin-bottom:0.5rem;">Methodology</p>
-    <ul class="method-list">
-      <li>Geometry: NACA 0012</li>
-      <li>Solver: SST k-ω</li>
-      <li>Mesh: 36,800 cells</li>
-      <li>Boundary conditions: Inlet Mach 0.7 · Inlet pressure 1,000 Pa</li>
-      <li>Assumptions: steady, inviscid, incompressible</li>
-      <li>AoA sweep: 0°, 1°, 2°, 3°, 4°, 5°</li>
-    </ul>
-
-    <div class="img-group">
-      <img src="{{ '/images/para_mach.png' | relative_url }}"
-           alt="Mach number distribution across NACA 0012 airfoil at varying angles of attack" />
-      <img src="{{ '/images/para_validation.png' | relative_url }}"
-           alt="Coefficient of lift comparison: NACA 0012 simulation vs experimental data" />
-    </div>
-
-    <div class="results-block">
-      <strong>Results</strong>
-      Pressure and Mach distributions confirm expected lift generation and boundary
-      layer propagation. Simulated lift coefficients fell within acceptable tolerance
-      of published experimental values, validating the CFD setup for subsequent studies.
-      This case established confidence in using Fluent to model aerodynamic behavior
-      before moving to less well-characterized geometries.
-    </div>
-  </div>
-
-  <hr class="divider" />
-
-  <!-- ─── STUDY 2 ─────────────────────────────────────────── -->
-  <div class="card" id="nozzle">
-    <div class="card-meta">CFD case study 02 · Internal flow</div>
-    <h3>Axisymmetric nozzle — compressible flow validation</h3>
-    <p>
-      Analysis of compressible flow through an axisymmetric converging-diverging nozzle
-      defined by A = x² + 0.1 over −0.5 &lt; x &lt; 0.5. Simulated results were compared
-      to analytical isentropic nozzle theory to assess solver accuracy.
-    </p>
-
-    <p style="color:#2C3A4D; font-weight:600; font-size:0.9rem; margin-bottom:0.5rem;">Methodology</p>
-    <ul class="method-list">
-      <li>Geometry: Axisymmetric nozzle A = x² + 0.1</li>
-      <li>Mesh: 533 cells</li>
-      <li>Boundary conditions: Reservoir pressure 101,325 Pa · Reservoir temperature 300 K</li>
-      <li>Assumptions: unsteady, inviscid, compressible</li>
-    </ul>
-
-    <div class="img-group">
-      <img src="{{ '/images/nozz_mach.png' | relative_url }}"
-           alt="Contour plot of Mach number distribution through axisymmetric nozzle" />
-      <img src="{{ '/images/nozz_pressure.png' | relative_url }}"
-           alt="Static pressure comparison: analytical vs simulated results through the nozzle" />
-    </div>
-
-    <div class="results-block">
-      <strong>Results</strong>
-      Initial comparison showed deviation between simulated and analytical pressures.
-      This was traced to the assumption in standard nozzle theory that flow properties
-      are uniform across each cross-section. Sampling pressure at both the wall and
-      centerline showed the analytical value fell between the two, confirming the
-      simulation's physical accuracy and highlighting the limits of 1D theory
-      for 2D geometries.
-    </div>
-
-    <div class="tag-list">
-      <span class="tag">Nozzle flow</span>
-      <span class="tag">Compressible</span>
-      <span class="tag">Isentropic theory</span>
-      <span class="tag">Validation</span>
-      <span class="tag">Inviscid</span>
-    </div>
-  </div>
-
-  <hr class="divider" />
-
-  <!-- ─── STUDY 3 ─────────────────────────────────────────── -->
-  <div class="card" id="vawt">
+  <!-- ─── FEATURED: VAWT ──────────────────────────────────── -->
+  <div class="card card-featured" id="vawt">
+    <span class="featured-flag">Featured study</span>
     <div class="card-meta">CFD case study 03 · Rotating machinery</div>
     <h3>Vertical axis wind turbine — rotating frame analysis</h3>
-    <p>
-      Analysis of the aerodynamic behavior of a vertical axis wind turbine (VAWT)
-      using a rotating reference frame. Flow over the rotor blades was computed
-      across multiple rotational positions to characterize lift and energy extraction.
+    <p class="study-summary">
+      Modeled airflow over a VAWT rotor using a rotating reference frame to
+      characterize lift and energy extraction across a full revolution.
     </p>
 
-    <p style="color:#2C3A4D; font-weight:600; font-size:0.9rem; margin-bottom:0.5rem;">Methodology</p>
-    <ul class="method-list">
-      <li>Solver: k-ε Realizable</li>
-      <li>Mesh: 42,491 cells</li>
-      <li>Boundary conditions: Inlet velocity 10 m/s · Rotation 40 rpm</li>
-      <li>Assumptions: steady, viscous, no-slip, incompressible</li>
-      <li>Rotating frame of reference applied to rotor domain</li>
+    <div class="tag-list" style="margin-top:0; padding-top:0; border-top:none; margin-bottom:1.25rem;">
+      <span class="tag">VAWT</span>
+      <span class="tag">k-ε Realizable</span>
+      <span class="tag">Rotating frame</span>
+      <span class="tag">Turbulence</span>
+      <span class="tag">Renewable energy</span>
+    </div>
+
+    <p class="subsection-heading">Setup</p>
+    <ul class="quick-facts">
+      <li><strong>Solver:</strong> k-ε Realizable</li>
+      <li><strong>Mesh:</strong> 42,491 cells</li>
+      <li><strong>Boundary conditions:</strong> 10 m/s inlet velocity · 40 rpm rotation</li>
+      <li><strong>Assumptions:</strong> steady, viscous, no-slip, incompressible</li>
     </ul>
 
     <div class="img-group">
@@ -134,22 +143,97 @@ description: "CFD research at Georgia Tech — ANSYS Fluent analysis of airfoils
            alt="Turbulent kinetic energy dissipation trailing the VAWT rotor blades" />
     </div>
 
-    <div class="results-block">
-      <strong>Results</strong>
-      Velocity deficit and turbulent kinetic energy in the rotor wake confirmed
-      momentum transfer from the flow to the rotor. Blade orientation relative to
-      the incoming flow had a strong effect on instantaneous torque production —
-      blades at favorable angles generated significantly higher lift, consistent
-      with VAWT behavior and the Betz limit framework.
+    <p class="subsection-heading">Results</p>
+    <ul class="results-list">
+      <li>Velocity deficit and turbulent kinetic energy in the rotor wake confirmed momentum transfer from flow to rotor</li>
+      <li>Blade orientation relative to incoming flow had a strong effect on instantaneous torque production</li>
+      <li>Favorable blade angles generated significantly higher lift, consistent with the Betz limit framework</li>
+    </ul>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ─── STUDY 1 ─────────────────────────────────────────── -->
+  <div class="card" id="naca0012">
+    <div class="card-meta">CFD case study 01 · Airfoil aerodynamics</div>
+    <h3>Symmetric airfoil — parametric AoA sweep</h3>
+    <p class="study-summary">
+      Analyzed a NACA 0012 airfoil at Mach 0.7 across a 0°–5° angle of attack
+      sweep, validated against published experimental data.
+    </p>
+
+    <div class="tag-list" style="margin-top:0; padding-top:0; border-top:none; margin-bottom:1.25rem;">
+      <span class="tag">NACA 0012</span>
+      <span class="tag">SST k-ω</span>
+      <span class="tag">Mach 0.7</span>
+      <span class="tag">Parametric sweep</span>
+      <span class="tag">Validation</span>
     </div>
 
-    <div class="tag-list">
-      <span class="tag">VAWT</span>
-      <span class="tag">k-ε Realizable</span>
-      <span class="tag">Rotating frame</span>
-      <span class="tag">Turbulence</span>
-      <span class="tag">Renewable energy</span>
+    <p class="subsection-heading">Setup</p>
+    <ul class="quick-facts">
+      <li><strong>Solver:</strong> SST k-ω</li>
+      <li><strong>Mesh:</strong> 36,800 cells</li>
+      <li><strong>Boundary conditions:</strong> Mach 0.7 inlet · 1,000 Pa inlet pressure</li>
+      <li><strong>Assumptions:</strong> steady, inviscid, incompressible</li>
+      <li><strong>AoA sweep:</strong> 0°, 1°, 2°, 3°, 4°, 5°</li>
+    </ul>
+
+    <div class="img-group">
+      <img src="{{ '/images/para_mach.png' | relative_url }}"
+           alt="Mach number distribution across NACA 0012 airfoil at varying angles of attack" />
+      <img src="{{ '/images/para_validation.png' | relative_url }}"
+           alt="Coefficient of lift comparison: NACA 0012 simulation vs experimental data" />
     </div>
+
+    <p class="subsection-heading">Results</p>
+    <ul class="results-list">
+      <li>Pressure and Mach distributions confirmed expected lift generation and boundary layer propagation</li>
+      <li>Simulated lift coefficients fell within acceptable tolerance of published experimental values</li>
+      <li>Validated the Fluent setup for use on the less well-characterized geometries that followed</li>
+    </ul>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ─── STUDY 2 ─────────────────────────────────────────── -->
+  <div class="card" id="nozzle">
+    <div class="card-meta">CFD case study 02 · Internal flow</div>
+    <h3>Axisymmetric nozzle — compressible flow validation</h3>
+    <p class="study-summary">
+      Modeled compressible flow through a converging-diverging nozzle
+      (A = x² + 0.1) and compared results against analytical isentropic nozzle theory.
+    </p>
+
+    <div class="tag-list" style="margin-top:0; padding-top:0; border-top:none; margin-bottom:1.25rem;">
+      <span class="tag">Nozzle flow</span>
+      <span class="tag">Compressible</span>
+      <span class="tag">Isentropic theory</span>
+      <span class="tag">Validation</span>
+      <span class="tag">Inviscid</span>
+    </div>
+
+    <p class="subsection-heading">Setup</p>
+    <ul class="quick-facts">
+      <li><strong>Geometry:</strong> Axisymmetric nozzle, A = x² + 0.1</li>
+      <li><strong>Mesh:</strong> 533 cells</li>
+      <li><strong>Boundary conditions:</strong> 101,325 Pa reservoir pressure · 300 K reservoir temperature</li>
+      <li><strong>Assumptions:</strong> unsteady, inviscid, compressible</li>
+    </ul>
+
+    <div class="img-group">
+      <img src="{{ '/images/nozz_mach.png' | relative_url }}"
+           alt="Contour plot of Mach number distribution through axisymmetric nozzle" />
+      <img src="{{ '/images/nozz_pressure.png' | relative_url }}"
+           alt="Static pressure comparison: analytical vs simulated results through the nozzle" />
+    </div>
+
+    <p class="subsection-heading">Results</p>
+    <ul class="results-list">
+      <li>Simulated and analytical pressures initially appeared to diverge</li>
+      <li>Traced to standard nozzle theory's assumption of uniform flow across each cross-section</li>
+      <li>Wall and centerline pressure sampling showed the analytical value fell exactly between the two, confirming simulation accuracy</li>
+    </ul>
   </div>
 
 </div>
