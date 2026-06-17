@@ -45,9 +45,9 @@ title: Home
   }
   
   .hero {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: clamp(4rem, 10vw, 7rem) clamp(1.5rem, 5vw, 2.5rem) clamp(3rem, 6vw, 4rem);
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: clamp(4rem, 10vw, 7rem) clamp(1.5rem, 5vw, 2.5rem) clamp(3rem, 6vw, 4rem);
   }
 
   .hero-eyebrow {
@@ -109,6 +109,7 @@ title: Home
   
   .btn-text:hover {
     background: #4A6585;
+    padding: 0.8rem 0;
     text-decoration: none;
   }
 
@@ -178,10 +179,6 @@ title: Home
     font-size: 0.8rem;
     font-weight: 500;
     padding: 0.3rem 0.7rem;
-    border-radius: 5px;
-    background: #F7F5F0;
-    color: #2C3A4D;
-    border: 1px solid #DCD6C9;
   }
 
   /* ─── FEATURED SECTIONS ──────────────────────────────────── */
@@ -276,8 +273,8 @@ title: Home
       something you can test, fly, or hold in your hands.
     </p>
     <div class="hero-cta">
-      <a href="{{ '/research/' | relative_url }}" class="btn btn-primary">View research</a>
-      <a href="{{ '/projects/' | relative_url }}" class="btn btn-text">Browse projects →</a>
+      <a href="{{ '/research/' | relative_url }}" class="btn btn-text">View research</a>
+      <a href="{{ '/projects/' | relative_url }}" class="btn btn-text">Browse projects</a>
     </div>
   </div>
 
@@ -308,31 +305,36 @@ title: Home
       <h3>Technical skills</h3>
 
       <div class="skill-category">
-        <div class="cat-name">Simulation &amp; CFD</div>
+        <div class="cat-name">Engineering</div>
         <div class="skill-tags">
-          <span class="skill-tag">ANSYS Fluent</span>
-          <span class="skill-tag">k-ω SST</span>
-          <span class="skill-tag">k-ε Realizable</span>
-          <span class="skill-tag">Mesh generation</span>
+          <span class="skill-tag">Aerodynamics</span>
+          <span class="skill-tag">CFD Analysis</span>
+          <span class="skill-tag">Systems Integration</span>
+          <span class="skill-tag">Test Operations</span>
+          <span class="skill-tag">Mechanical Assembly</span>
+          <span class="skill-tag">Prototyping</span>
         </div>
       </div>
-
+      
       <div class="skill-category">
-        <div class="cat-name">Computation</div>
+        <div class="cat-name">Software</div>
         <div class="skill-tags">
           <span class="skill-tag">MATLAB</span>
-          <span class="skill-tag">Numerical integration</span>
-          <span class="skill-tag">Python</span>
+          <span class="skill-tag">ANSYS Fluent</span>
+          <span class="skill-tag">Solidworks</span>
+          <span class="skill-tag">Fusion 360</span>
+          <span class="skill-tag">Onshape</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <div class="cat-name">Domains</div>
+        <div class="cat-name">Manufacturing</div>
         <div class="skill-tags">
-          <span class="skill-tag">Orbital mechanics</span>
-          <span class="skill-tag">Fluid dynamics</span>
-          <span class="skill-tag">Vehicle performance</span>
-          <span class="skill-tag">Dynamics &amp; controls</span>
+          <span class="skill-tag">Additive Manufacturing (FDM, SLA, SLS)</span>
+          <span class="skill-tag">Laser Cutting</span>
+          <span class="skill-tag">Equipment Maintenance & Repair</span>
+          <span class="skill-tag">Wood Tools</span>
+          <span class="skill-tag">Hand Tools</span>
         </div>
       </div>
 
