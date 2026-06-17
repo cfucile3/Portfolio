@@ -190,7 +190,7 @@ title: Home
 
   /* ─── FEATURED SECTIONS ──────────────────────────────────── */
   .featured {
-    max-width: 1080px;
+    max-width: 1260px;
     margin: 0 auto;
     padding: clamp(3.5rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
   }
@@ -222,34 +222,24 @@ title: Home
 
   .feat-card {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 16px;
     background: #FFFFFF;
     border: 1px solid #DCD6C9;
     border-radius: 10px;
+    padding: 2rem;
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
   .feat-card .fc-content {
-    position: absolute;
-    background: #FFFFFF;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     flex: 1;
     min-width: 0;
-    opacity: 0;
   }
 
   .feat-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(44,58,77,0.07);
-  }
-
-  .feat-card:hover .fc-content{
-    transform: translateY(-2px);
-    opacity: 0.85;
   }
 
   .feat-card .fc-label {
@@ -280,9 +270,10 @@ title: Home
   }
 
   .feat-card .card-img {
-    width: 530;
-    height: 500px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
+    border-radius: 12px;
     flex-shrink: 0;
   }
 
@@ -361,7 +352,7 @@ title: Home
 </section>
 
 <!--
-Want to make it so its an image and then on hover the text comes out. Use similar method as the btn??
+Need to add photos on the right of these cards
 -->
 
 
@@ -372,8 +363,8 @@ Want to make it so its an image and then on hover the text comes out. Use simila
 
   <div class="featured-grid">
     <div class="feat-card">
-      <div class="fc-label">Research</div>
       <div class="fc-content">
+        <div class="fc-label">Research</div>
         <h3>CFD analysis at Georgia Tech</h3>
         <p>Seven geometric case studies across airfoils, nozzles, and turbines — modeled, meshed, and validated against experimental data in ANSYS Fluent.</p>
         <a href="{{ '/research/' | relative_url }}" class="card-link">View research →</a>
@@ -384,8 +375,8 @@ Want to make it so its an image and then on hover the text comes out. Use simila
     </div>
 
     <div class="feat-card">
-      <div class="fc-label">Project</div>
       <div class="fc-content">
+        <div class="fc-label">Project</div>
         <h3>Micro-hydroelectric turbine</h3>
         <p>Ten-plus physical prototypes and fluid mechanics modeling, built from scratch and advanced national awards competition.</p>
         <a href="{{ '/projects/' | relative_url }}" class="card-link">View project →</a>
