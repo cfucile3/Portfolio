@@ -232,6 +232,11 @@ title: Home
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
+  .feat-card .fc-content {
+    flex: 1;
+    min-width: 0;
+  }
+
   .feat-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(44,58,77,0.07);
@@ -372,11 +377,13 @@ Need to add photos on the right of these cards
     </div>
 
     <div class="feat-card">
-      <div class="fc-label">Simulation</div>
+      <div class="fc-content">
+        <div class="fc-label">Simulation</div>
+        <h3>Orbital mechanics — L2 point</h3>
+        <p>Estimated the Sun–Earth L2 Lagrange point and simulated satellite trajectories around it using numerical integration in MATLAB.</p>
+        <a href="{{ '/projects/' | relative_url }}#l2" class="card-link">View project →</a>
+      </div>
       <img class="card-img" src="images/orbit_euler.jpg" alt="Image">
-      <h3>Orbital mechanics — L2 point</h3>
-      <p>Estimated the Sun–Earth L2 Lagrange point and simulated satellite trajectories around it using numerical integration in MATLAB.</p>
-      <a href="{{ '/projects/' | relative_url }}#l2" class="card-link">View project →</a>
     </div>
 
     <div class="feat-card">
