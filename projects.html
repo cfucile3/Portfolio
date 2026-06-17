@@ -143,17 +143,9 @@ description: "Engineering projects — orbital mechanics simulation, robotic mot
       <li>10+ prototypes developed</li>
       <li>Fluid mechanics modeling</li>
       <li>Theoretical &amp; measured energy output</li>
-      <li>International science fair</li>
+      <li>Physical Prototyping</li>
     </ul>
-
-    <p>
-      Designed, built, and tested a micro-hydroelectric turbine intended for installation
-      in household water supply pipes to passively generate electricity through normal
-      water use. Consulted professors and teachers on fluid mechanics, calculated
-      theoretical energy output, and built a test rig to measure real electrical output
-      across ten-plus iterated prototypes.
-    </p>
-
+    
     <ul class="method-list">
       <li>Modeled pipe flow and turbine geometry for energy extraction</li>
       <li>Calculated theoretical output using fluid dynamics principles</li>
@@ -176,13 +168,6 @@ description: "Engineering projects — orbital mechanics simulation, robotic mot
         </div>
       </object>
     </details>
-
-    <div class="tag-list">
-      <span class="tag">Fluid mechanics</span>
-      <span class="tag">Physical prototyping</span>
-      <span class="tag">Energy harvesting</span>
-      <span class="tag">Science fair</span>
-    </div>
   </div>
 
   <!-- ──────────────────────────────────────────────────────── -->
@@ -193,11 +178,13 @@ description: "Engineering projects — orbital mechanics simulation, robotic mot
     <div class="card-meta">Dynamics · Orbital mechanics</div>
     <h3>Orbital mechanics simulation — L2 Lagrange point</h3>
 
-    <p>
-      Simulated the orbital motion of a satellite near the Sun–Earth L2 Lagrange point.
-      Estimated the L2 location from orbital mechanics relations, then propagated the
-      satellite's trajectory using numerical integration in the rotating frame.
-    </p>
+    <div class="tag-list">
+      <span class="tag">MATLAB</span>
+      <span class="tag">Orbital mechanics</span>
+      <span class="tag">L2 point</span>
+      <span class="tag">3-body problem</span>
+      <span class="tag">Numerical integration</span>
+    </div>
 
     <ul class="method-list">
       <li>Estimated L2 position from orbital mechanics relations</li>
@@ -228,26 +215,22 @@ y(i+1) = y(i) + vy(i) * dt;</code></pre>
       </div>
     </details>
 
-    <div class="tag-list">
-      <span class="tag">MATLAB</span>
-      <span class="tag">Orbital mechanics</span>
-      <span class="tag">L2 point</span>
-      <span class="tag">3-body problem</span>
-      <span class="tag">Numerical integration</span>
-    </div>
   </div>
 
   <!-- ROBOT -->
   <div class="card" id="robot">
     <div class="card-meta">Dynamics · Spacecraft systems</div>
     <h3>Robotic motion simulation — microgravity environment</h3>
-
-    <p>
-      Designed and simulated a cubic robot inspired by NASA's AstroBee platform, capable
-      of maneuvering in a microgravity environment. The robot used offset thruster pairs
-      on two faces to independently control translation and rotation, and was simulated
-      navigating around a fixed obstacle.
-    </p>
+    
+    <div class="tag-list">
+      <span class="tag">MATLAB</span>
+      <span class="tag">AstroBee</span>
+      <span class="tag">Microgravity</span>
+      <span class="tag">Thruster control</span>
+      <span class="tag">Rigid body dynamics</span>
+      <span class="tag">Solidworks</span>
+      <span class="tag">System Design</span>
+    </div>
 
     <ul class="method-list">
       <li>Designed thruster geometry with offset placement on cube faces</li>
@@ -279,26 +262,20 @@ omega(r)          = omega(r-1) + rot_a * dt;
 theta(r:numFrames) = theta(r-1) + omega(r) * dt;</code></pre>
       </div>
     </details>
-
-    <div class="tag-list">
-      <span class="tag">MATLAB</span>
-      <span class="tag">AstroBee</span>
-      <span class="tag">Microgravity</span>
-      <span class="tag">Thruster control</span>
-      <span class="tag">Rigid body dynamics</span>
-    </div>
   </div>
 
   <!-- GROUND TRACK -->
   <div class="card" id="groundtrack">
     <div class="card-meta">Vehicle performance · Astrodynamics</div>
     <h3>Satellite ground track simulation</h3>
-
-    <p>
-      Simulated the two-day ground track of an Earth-orbiting satellite, modeling how
-      orbital parameters translate into latitude/longitude coverage. Earth's rotation
-      was included to show westward track progression over successive passes.
-    </p>
+    
+    <div class="tag-list">
+      <span class="tag">MATLAB</span>
+      <span class="tag">Astrodynamics</span>
+      <span class="tag">Two-body problem</span>
+      <span class="tag">Ground track</span>
+      <span class="tag">Predictor-corrector</span>
+    </div>
 
     <ul class="method-list">
       <li>Modeled perifocal two-body orbital motion</li>
@@ -332,27 +309,20 @@ uCorr = (uNow+u_pred)/2 + deltat/2 * (-rCorr^-3) * x_pred;
 vCorr = (vNow+v_pred)/2 + deltat/2 * (-rCorr^-3) * y_pred;</code></pre>
       </div>
     </details>
-
-    <div class="tag-list">
-      <span class="tag">MATLAB</span>
-      <span class="tag">Astrodynamics</span>
-      <span class="tag">Two-body problem</span>
-      <span class="tag">Ground track</span>
-      <span class="tag">Predictor-corrector</span>
-    </div>
   </div>
 
   <!-- AIRCRAFT PERFORMANCE -->
   <div class="card" id="aircraft">
     <div class="card-meta">Vehicle performance · Aerodynamics</div>
     <h3>Aircraft range &amp; service ceiling analysis</h3>
-
-    <p>
-      Computed aircraft range, drag polar, and service ceiling for a transonic aircraft
-      using standard performance equations. The drag model included parasite drag,
-      induced drag, and wave drag (with drag divergence), enabling realistic cruise
-      and ceiling estimation.
-    </p>
+    
+    <div class="tag-list">
+      <span class="tag">MATLAB</span>
+      <span class="tag">Aerodynamics</span>
+      <span class="tag">Drag polar</span>
+      <span class="tag">Range calculation</span>
+      <span class="tag">Service ceiling</span>
+    </div>
 
     <ul class="method-list">
       <li>Modeled parasite, induced, and wave drag contributions</li>
@@ -384,14 +354,6 @@ wavDrag = 20.*max(0,(mach-machCr)).^4;
 totalCD = parDrag + indDrag + wavDrag;</code></pre>
       </div>
     </details>
-
-    <div class="tag-list">
-      <span class="tag">MATLAB</span>
-      <span class="tag">Aerodynamics</span>
-      <span class="tag">Drag polar</span>
-      <span class="tag">Wave drag</span>
-      <span class="tag">Service ceiling</span>
-    </div>
   </div>
 
 </div>
