@@ -1,0 +1,91 @@
+---
+layout: default
+title: Resume
+permalink: /resume/
+description: "Resume — Your Name, Aerospace Engineering, Georgia Tech."
+---
+
+<style>
+  .resume-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .resume-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    background: #2C3A4D;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  .resume-download:hover {
+    background: #4A6585;
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+
+  .resume-embed {
+    width: 100%;
+    height: 1000px;
+    border: 1px solid #DCD6C9;
+    border-radius: 10px;
+    background: #FFFFFF;
+  }
+
+  .resume-fallback {
+    background: #FFFFFF;
+    border: 1px solid #DCD6C9;
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .resume-fallback p {
+    color: #5B6B7F;
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (max-width: 700px) {
+    .resume-embed { height: 600px; }
+  }
+</style>
+
+<div class="page-content">
+
+  <div class="resume-header">
+    <div>
+      <p class="section-label">Resume</p>
+      <h1 class="page-title" style="margin-bottom: 0.5rem;">Your Name</h1>
+      <p class="page-subtitle" style="margin-bottom: 0;">Aerospace Engineering · Georgia Tech</p>
+    </div>
+
+    <a class="resume-download" href="{{ '/resume/resume.pdf' | relative_url }}" download>
+      <span>↓</span> Download PDF
+    </a>
+  </div>
+
+  <object class="resume-embed"
+          data="{{ '/resume/resume.pdf' | relative_url }}"
+          type="application/pdf">
+    <div class="resume-fallback">
+      <p>Your browser can't display the embedded resume.</p>
+      <a class="resume-download" href="{{ '/resume/resume.pdf' | relative_url }}" download>
+        <span>↓</span> Download PDF
+      </a>
+    </div>
+  </object>
+
+</div>
