@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --ink:        #2C3A4D;   /* deep slate blue — headlines, primary text */
+      --slate:      #5B6B7F;   /* mid blue-gray — body, secondary text */
+      --slate-soft: #8895A3;   /* lighter still — captions, meta */
+      --denim:      #4A6585;   /* accent — links, underlines, highlights */
+      --denim-deep: #344A63;   /* hover state */
+      --paper:      #F7F5F0;   /* off-white background */
+      --paper-dim:  #EFEBE3;   /* slightly deeper off-white for cards */
+      --white:      #FFFFFF;
+      --line:       #DCD6C9;   /* hairline borders on warm paper */
+
+      --serif: 'Fraunces', Georgia, serif;
+      --sans:  'Inter', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--slate);
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--denim); text-decoration: none; }
+    a:hover { color: var(--denim-deep); text-decoration: underline; }
+    img { max-width: 100%; height: auto; display: block; border-radius: 2px; }
+
+    h1, h2, h3, h4 {
+      font-family: var(--serif);
+      color: var(--ink);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247,245,240,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+    .nav-logo span { color: var(--denim); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--slate);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--denim); text-decoration: none; }
+
+    /* ─── MAIN CONTENT WRAPPER ───────────────────────────────── */
+    .page-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 2.5rem);
+    }
+
+    /* ─── SECTION LABEL ──────────────────────────────────────── */
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--denim);
+      margin-bottom: 1rem;
+    }
+
+    /* ─── PAGE TITLE ─────────────────────────────────────────── */
+    .page-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .page-subtitle {
+      color: var(--slate);
+      font-size: 1.1rem;
+      line-height: 1.65;
+      margin-bottom: 3.5rem;
+      max-width: 600px;
+    }
+
+    /* ─── CARDS ──────────────────────────────────────────────── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 2.25rem 2.5rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .card h3 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .card .card-meta {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--denim);
+      margin-bottom: 1.1rem;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      color: var(--slate);
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ─── TAGS / PILLS ───────────────────────────────────────── */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--paper-dim);
+    }
+
+    .tag {
+      font-family: var(--sans);
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      background: var(--paper-dim);
+      color: var(--denim-deep);
+      border: 1px solid var(--line);
+    }
+
+    /* ─── PROJECT IMAGES ─────────────────────────────────────── */
+    .img-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .img-group img {
+      width: 100%;
+      border: 1px solid var(--line);
+    }
+
+    /* ─── CODE BLOCKS ────────────────────────────────────────── */
+    pre, code {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 0.8rem;
+    }
+
+    pre {
+      background: var(--ink);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+      color: #D8DEE8;
+      line-height: 1.6;
+    }
+
+    code { color: var(--denim-deep); background: var(--paper-dim); padding: 0.1em 0.4em; border-radius: 3px; }
+    pre code { background: none; padding: 0; color: inherit; }
+
+    /* ─── METHODOLOGY LIST ───────────────────────────────────── */
+    .method-list {
+      list-style: none;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .method-list li {
+      font-size: 0.95rem;
+      color: var(--slate);
+      padding: 0.35rem 0 0.35rem 1.5rem;
+      position: relative;
+    }
+
+    .method-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--denim);
+    }
+
+    /* ─── RESULTS BLOCK ──────────────────────────────────────── */
+    .results-block {
+      background: var(--paper-dim);
+      border-left: 3px solid var(--denim);
+      border-radius: 0 6px 6px 0;
+      padding: 1.4rem 1.6rem;
+      margin-top: 1.25rem;
+      font-size: 0.95rem;
+      color: var(--slate);
+    }
+
+    .results-block strong {
+      color: var(--denim-deep);
+      font-family: var(--sans);
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ─── SECTION DIVIDER ────────────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 3.5rem 0;
+    }
+
+    /* ─── STAT PILLS ─────────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .stat-pill {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.85rem 1.3rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--slate);
+    }
+
+    .stat-pill span {
+      display: block;
+      font-size: 1.6rem;
+      font-family: var(--serif);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 3rem clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-name {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--slate-soft);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    .footer-links a {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--slate);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--denim); text-decoration: none; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .nav-links { gap: 1.25rem; }
+      .nav-links a { font-size: 0.82rem; }
+      .card { padding: 1.5rem 1.75rem; }
+      .stat-row { gap: 0.75rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a class="nav-logo" href="{{ '/' | relative_url }}">
+      {{ site.author.name | split: ' ' | first }}<span>.</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Home</a></li>
+      <li><a href="{{ '/research/' | relative_url }}"{% if page.url contains 'research' %} class="active"{% endif %}>Research</a></li>
+      <li><a href="{{ '/projects/' | relative_url }}"{% if page.url contains 'projects' %} class="active"{% endif %}>Projects</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-name">{{ site.author.name }} · {{ site.description }}</p>
+    <div class="footer-links">
+      <a href="mailto:{{ site.author.email }}">Email</a>
+      <a href="{{ site.author.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="{{ site.author.github }}" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+</body>
+</html>

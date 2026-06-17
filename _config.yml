@@ -1,0 +1,40 @@
+title: "Your Name"
+description: "Aerospace Engineering Student @ Georgia Tech"
+url: "https://yourusername.github.io"
+baseurl: ""
+
+author:
+  name: "Your Name"
+  bio: "Aerospace Engineering @ Georgia Tech"
+  email: "your.email@gatech.edu"
+  linkedin: "https://linkedin.com/in/yourprofile"
+  github: "https://github.com/yourusername"
+
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - README.md
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"

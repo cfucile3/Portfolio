@@ -1,0 +1,349 @@
+---
+layout: default
+title: Home
+---
+
+<style>
+  /* ─── HERO ───────────────────────────────────────────────── */
+  .hero {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(4rem, 10vw, 7rem) clamp(1.5rem, 5vw, 2.5rem) clamp(3rem, 6vw, 4rem);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #4A6585;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 7vw, 4.4rem);
+    font-weight: 500;
+    color: #2C3A4D;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: #4A6585;
+  }
+
+  .hero-bio {
+    font-size: 1.2rem;
+    color: #5B6B7F;
+    max-width: 580px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn {
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: #2C3A4D;
+    color: #F7F5F0;
+  }
+  .btn-primary:hover {
+    background: #4A6585;
+    text-decoration: none;
+  }
+
+  .btn-text {
+    color: #5B6B7F;
+    font-weight: 500;
+    border-bottom: 1px solid #DCD6C9;
+    padding: 0.8rem 0;
+  }
+  .btn-text:hover {
+    color: #4A6585;
+    border-color: #4A6585;
+    text-decoration: none;
+  }
+
+  /* ─── ABOUT STRIP ────────────────────────────────────────── */
+  .about-strip {
+    background: #FFFFFF;
+    border-top: 1px solid #DCD6C9;
+    border-bottom: 1px solid #DCD6C9;
+    padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem);
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 700px) {
+    .about-strip { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  .about-text h2 {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: #2C3A4D;
+    margin-bottom: 1.1rem;
+  }
+
+  .about-text p {
+    color: #5B6B7F;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .about-text p + p { margin-top: 1rem; }
+
+  .skills-grid h3 {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #4A6585;
+    margin-bottom: 1.4rem;
+  }
+
+  .skill-category {
+    margin-bottom: 1.4rem;
+  }
+
+  .skill-category .cat-name {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: #8895A3;
+    font-weight: 500;
+    margin-bottom: 0.55rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .skill-tag {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    border-radius: 5px;
+    background: #F7F5F0;
+    color: #2C3A4D;
+    border: 1px solid #DCD6C9;
+  }
+
+  /* ─── FEATURED SECTIONS ──────────────────────────────────── */
+  .featured {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: clamp(3.5rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .featured > .section-label,
+  .featured > .featured-heading {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .featured-heading {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
+    font-weight: 500;
+    color: #2C3A4D;
+    margin-bottom: 2.5rem;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .featured-grid { grid-template-columns: 1fr; }
+  }
+
+  .feat-card {
+    background: #FFFFFF;
+    border: 1px solid #DCD6C9;
+    border-radius: 10px;
+    padding: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .feat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(44,58,77,0.07);
+  }
+
+  .feat-card .fc-label {
+    font-family: var(--sans);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #4A6585;
+    margin-bottom: 0.9rem;
+  }
+
+  .feat-card h3 {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #2C3A4D;
+    margin-bottom: 0.7rem;
+    line-height: 1.3;
+  }
+
+  .feat-card p {
+    font-size: 0.92rem;
+    color: #5B6B7F;
+    line-height: 1.65;
+    margin-bottom: 1.1rem;
+  }
+
+  .feat-card a.card-link {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4A6585;
+  }
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Aerospace Engineering · Georgia Tech</p>
+  <h1 class="hero-name">
+    Your Name<em>.</em>
+  </h1>
+  <p class="hero-bio">
+    I work at the intersection of fluid dynamics, orbital mechanics, and spacecraft
+    systems — building simulations and physical prototypes that turn equations into
+    something you can test, fly, or hold in your hands.
+  </p>
+  <div class="hero-cta">
+    <a href="{{ '/research/' | relative_url }}" class="btn btn-primary">View research</a>
+    <a href="{{ '/projects/' | relative_url }}" class="btn btn-text">Browse projects →</a>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<section>
+  <div class="about-strip">
+    <div class="about-text">
+      <h2>Engineering with depth.</h2>
+      <p>
+        I'm studying Aerospace Engineering at Georgia Tech with a focus on
+        computational methods and vehicle performance. My work spans CFD analysis
+        of airfoils and turbines, orbital mechanics simulation, and physical
+        prototyping — I care about understanding the physics, not just running
+        the software.
+      </p>
+      <p>
+        Currently looking for internship and co-op roles where I can contribute
+        to real aerospace, defense, or energy systems.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      <h3>Technical skills</h3>
+
+      <div class="skill-category">
+        <div class="cat-name">Simulation &amp; CFD</div>
+        <div class="skill-tags">
+          <span class="skill-tag">ANSYS Fluent</span>
+          <span class="skill-tag">k-ω SST</span>
+          <span class="skill-tag">k-ε Realizable</span>
+          <span class="skill-tag">Mesh generation</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="cat-name">Computation</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">Numerical integration</span>
+          <span class="skill-tag">Python</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="cat-name">Domains</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Orbital mechanics</span>
+          <span class="skill-tag">Fluid dynamics</span>
+          <span class="skill-tag">Vehicle performance</span>
+          <span class="skill-tag">Dynamics &amp; controls</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="cat-name">Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">SolidWorks</span>
+          <span class="skill-tag">LaTeX</span>
+          <span class="skill-tag">Git</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED WORK -->
+<section class="featured">
+  <p class="section-label">Selected work</p>
+  <h2 class="featured-heading">A few things I've built and studied</h2>
+
+  <div class="featured-grid">
+    <div class="feat-card">
+      <div class="fc-label">Research</div>
+      <h3>CFD analysis at Georgia Tech</h3>
+      <p>Seven geometries across airfoils, nozzles, and turbines — modeled, meshed, and validated against experimental data in ANSYS Fluent.</p>
+      <a href="{{ '/research/' | relative_url }}" class="card-link">View research →</a>
+    </div>
+
+    <div class="feat-card">
+      <div class="fc-label">Project</div>
+      <h3>Micro-hydroelectric turbine</h3>
+      <p>Ten-plus physical prototypes and fluid mechanics modeling, built from scratch and presented at an international science fair.</p>
+      <a href="{{ '/projects/' | relative_url }}" class="card-link">View projects →</a>
+    </div>
+
+    <div class="feat-card">
+      <div class="fc-label">Simulation</div>
+      <h3>Orbital mechanics — L2 point</h3>
+      <p>Estimated the Sun–Earth L2 Lagrange point and simulated satellite trajectories around it using numerical integration in MATLAB.</p>
+      <a href="{{ '/projects/' | relative_url }}#l2" class="card-link">View project →</a>
+    </div>
+
+    <div class="feat-card">
+      <div class="fc-label">Dynamics</div>
+      <h3>Microgravity robot simulation</h3>
+      <p>Designed thruster geometry and simulated an AstroBee-inspired cubic robot navigating around obstacles in microgravity.</p>
+      <a href="{{ '/projects/' | relative_url }}#robot" class="card-link">View project →</a>
+    </div>
+  </div>
+</section>
