@@ -5,6 +5,45 @@ title: Home
 
 <style>
   /* ─── HERO ───────────────────────────────────────────────── */
+  .hero-with-photo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 5vw, 4rem);
+  flex-wrap: wrap;
+  }
+
+  .hero-text {
+  flex: 1 1 420px;
+  min-width: 0;
+  }
+
+  .hero-photo {
+  flex: 0 0 auto;
+  width: clamp(180px, 22vw, 260px);
+  }
+
+  .hero-photo img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #DCD6C9;
+  }
+
+  @media (max-width: 700px) {
+    .hero-with-photo {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+    .hero-photo {
+      width: 160px;
+    }
+    .hero-cta {
+      justify-content: center;
+    }
+  }
+  
   .hero {
     max-width: 760px;
     margin: 0 auto;
@@ -61,24 +100,15 @@ title: Home
     display: inline-block;
   }
 
-  .btn-primary {
-    background: #2C3A4D;
-    color: #F7F5F0;
-  }
-  .btn-primary:hover {
-    background: #4A6585;
-    text-decoration: none;
-  }
-
   .btn-text {
     color: #5B6B7F;
     font-weight: 500;
     border-bottom: 1px solid #DCD6C9;
     padding: 0.8rem 0;
   }
+  
   .btn-text:hover {
-    color: #4A6585;
-    border-color: #4A6585;
+    background: #4A6585;
     text-decoration: none;
   }
 
@@ -234,19 +264,25 @@ title: Home
 </style>
 
 <!-- HERO -->
-<section class="hero">
-  <p class="hero-eyebrow">Aerospace Engineering · Georgia Tech</p>
-  <h1 class="hero-name">
-    Charles Fucile</em>
-  </h1>
-  <p class="hero-bio">
-    I work at the intersection of fluid dynamics, orbital mechanics, and spacecraft
-    systems — building simulations and physical prototypes that turn equations into
-    something you can test, fly, or hold in your hands.
-  </p>
-  <div class="hero-cta">
-    <a href="{{ '/research/' | relative_url }}" class="btn btn-primary">View research</a>
-    <a href="{{ '/projects/' | relative_url }}" class="btn btn-text">Browse projects →</a>
+<section class="hero hero-with-photo">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Aerospace Engineering · Georgia Tech</p>
+    <h1 class="hero-name">
+      Your Name<em>.</em>
+    </h1>
+    <p class="hero-bio">
+      I work at the intersection of fluid dynamics, orbital mechanics, and spacecraft
+      systems — building simulations and physical prototypes that turn equations into
+      something you can test, fly, or hold in your hands.
+    </p>
+    <div class="hero-cta">
+      <a href="{{ '/research/' | relative_url }}" class="btn btn-primary">View research</a>
+      <a href="{{ '/projects/' | relative_url }}" class="btn btn-text">Browse projects →</a>
+    </div>
+  </div>
+
+  <div class="hero-photo">
+    <img src="{{ '/images/profile.jpg' | relative_url }}" alt="Your Name" />
   </div>
 </section>
 
@@ -329,7 +365,7 @@ title: Home
       <div class="fc-label">Project</div>
       <h3>Micro-hydroelectric turbine</h3>
       <p>Ten-plus physical prototypes and fluid mechanics modeling, built from scratch and presented at an international science fair.</p>
-      <a href="{{ '/projects/' | relative_url }}" class="card-link">View projects →</a>
+      <a href="{{ '/projects/' | relative_url }}" class="card-link">View project →</a>
     </div>
 
     <div class="feat-card">
