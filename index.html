@@ -221,6 +221,10 @@ title: Home
   }
 
   .feat-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
     background: #FFFFFF;
     border: 1px solid #DCD6C9;
     border-radius: 10px;
@@ -257,6 +261,15 @@ title: Home
     color: #5B6B7F;
     line-height: 1.65;
     margin-bottom: 1.1rem;
+    text-align: left;
+  }
+
+  .feat-card .card-img {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
   }
 
   .feat-card a.card-link {
@@ -333,6 +346,11 @@ title: Home
   </div>
 </section>
 
+<!--
+Need to add photos on the right of these cards
+-->
+
+
 <!-- FEATURED WORK -->
 <section class="featured">
   <p class="section-label">Selected work</p>
@@ -355,6 +373,7 @@ title: Home
 
     <div class="feat-card">
       <div class="fc-label">Simulation</div>
+      <img class="card-img" src="images/orbit_euler.jpg" alt="Image">
       <h3>Orbital mechanics — L2 point</h3>
       <p>Estimated the Sun–Earth L2 Lagrange point and simulated satellite trajectories around it using numerical integration in MATLAB.</p>
       <a href="{{ '/projects/' | relative_url }}#l2" class="card-link">View project →</a>
